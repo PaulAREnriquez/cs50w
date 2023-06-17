@@ -32,3 +32,13 @@ of the old version/s that used to exist in the repository
 3. To know what's currently happening in the repository:
 
 `git status`
+
+You might want to type in `git status` anytime you want to see the status of your
+current repository, such as changes that have not yet been committed as well
+
+
+If you want to add and commit all the files that have been changed:
+The shortcut is,
+`git commit -am "message"`
+
+It combines the git add step and the git commit step
