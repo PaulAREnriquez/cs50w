@@ -33,6 +33,10 @@ of the old version/s that used to exist in the repository
 
 `git status`
 
+4. Pushing commits to the repository in Github:
+`git push <remote> <branchname>`
+Ex: git push origin master
+
 You might want to type in `git status` anytime you want to see the status of your
 current repository, such as changes that have not yet been committed as well
 
@@ -42,3 +46,13 @@ The shortcut is,
 `git commit -am "message"`
 
 It combines the git add step and the git commit step
+
+To download the current version of the repository in GitHub:
+
+Pull
+
+git pull <remote> <branchname>
+Ex: `git pull origin master`
+
+Merge Conflicts
+Changes from different sources to the same part of the code in the repository
