@@ -16,5 +16,19 @@ Cloning a Repository
 Commit
 The savepoint state of the current files that you want to keep track of
 
-If you want to keep track of individual files and not other files:
+1. If you want to keep track of individual files and not other files:
 `git add <filename>`
+
+2. Next, tell git to keep track of the files you added
+You add a message inside "" to explicitly tell what changes you made
+in this recent commit
+It just makes it easier to remember what changes you made to a repository.
+
+`git commit -m "message"`
+
+Git will now save a new snapshot of the version of your code, keeping track
+of the old version/s that used to exist in the repository
+
+3. To know what's currently happening in the repository:
+
+`git status`
