@@ -1,0 +1,20 @@
+Git
+
+'git' is a command-line tool that allows us to:
+
+1. Keep track of changes that we make to the code
+2. Synchronizes code between different people
+3. Test changes to code (on a separate branch) without losing the original
+4. Revert back to old versions of our code
+
+Cloning a Repository
+- Takes a repository from the Github server and download it in our own computer
+- The repository and all its contents will now be downloaded to your local computer
+
+`git clone <url>`
+
+Commit
+The savepoint state of the current files that you want to keep track of
+
+If you want to keep track of individual files and not other files:
+`git add <filename>`

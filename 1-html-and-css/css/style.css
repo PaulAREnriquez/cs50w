@@ -1,0 +1,7 @@
+/* harry is the id of the element that we want to style*/
+/* '#' is used to denote id */
+/* we use dot (.) to indicate class, it affects all elements under the same class*/
+
+.baz {
+  color: blue;
+}

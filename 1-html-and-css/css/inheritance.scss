@@ -1,0 +1,33 @@
+
+/* Inheritance in SASS */
+/*If you would look to the compiled css for this scss file,
+there is nothing that we could not have done directly using css.
+SASS only makes it simpler to create relationships between elements
+using inheritance. */
+
+
+%message {
+    font-family: sans-serif;
+    font-size:18px;
+    font-weight:bold;
+    border: 1px solid black;
+    padding:20px;
+    margin:20px;
+}
+
+.success {
+    @extend %message;
+    background-color: green;
+}
+
+.warning {
+    @extend %message;
+    background-color: yellow;
+
+}
+
+.danger {
+    @extend %message;
+    background-color: red;
+}
+

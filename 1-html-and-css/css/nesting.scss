@@ -1,0 +1,13 @@
+/*SASS allows us to nest css */
+/*It makes the css code cleaner and more readable */
+div {
+    font-size:18px;
+
+    p {
+        color: blue;
+    }
+
+    ul {
+        color:green
+    }
+}

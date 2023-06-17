@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello!</title>
+    <!--this is how you factor out the css for each element-->
+    <!-- you can use the style tag-->
+    <!-- and inside it you define the css properties for each tag-->
+    <!-- the tags will then be affected according to their style-->
+    <!--
+    <style>
+      h1 {
+        color: blue;
+        text-align: center;
+      }
+</style>
+  -->
+  <!-- here is the proper way to do it-->
+  <!-- you link a different css file that contains the styling-->
+  <!-- which this webpage will now inherit-->
+  <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <h1 class="baz">Heading 1</h1>
+    <h1 class="baz">Heading 2</h1>
+    <h1>Heading 3</h1>
+    <!-- this is what's called as "inline styling"-->
+    <!-- when you take directly css as a style attribute to each element-->
+    <!-- inline styles should be avoided-->
+    <h2 style="color: green; text-align: center">Hope you enjoy here!</h2>
+    Hello World!
+  </body>
+</html>
+
+<!--What happens when there are MULTIPLE different
+selectors that could apply to the same element?-->
+<!--This is the problem of SPECIFICITY-->
+<!--There is a particular order that is followed
+to determine what style a particular element should follow-->
+<!--
+  1. inline - most specific using "style"
+  2. id - more specific using "id" and #
+  3. class - less specific using "class" and "."
+  4. type - least specific using the name of the element
+-->
+

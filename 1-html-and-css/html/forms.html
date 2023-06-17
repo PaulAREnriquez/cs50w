@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Forms</title>
+  </head>
+  <body>
+    <form>
+      <!--form tags are used to get inputs from the user-->
+      <!-- the input tag are contained within forms-->
+      <!--type tells what kind of input will be taken-->
+      <!--placeholder puts a placeholder of input for the user to see-->
+      <!--name lets you access the return of the input tag-->
+
+      <div>
+        <input name="name" type="text" placeholder="Name" />
+        <input name="password" type="password" placeholder="Password" />
+      </div>
+      <div>
+        Favorit color?
+        <input name="color" type="radio" value="red" />Red
+        <input name="color" type="radio" value="green" />Green
+        <input name="color" type="radio" value="blue" />Blue
+        <input name="color" type="radio" value="other" />Other
+      </div>
+      <div>
+        <input name="country" list="countries" placeholder="Country" />
+        <datalist id="countries">
+          <option value="Afghanistan" />
+          <option value="Albania" />
+          <option value="Algeria" />
+          <option value="ndorra" />
+          <option value="Angola" />
+          <option value="Antigua & Deps" />
+          <option value="Armenia" />
+          <option value="Australia" />
+        </datalist>
+      </div>
+      <input type="submit" />
+    </form>
+  </body>
+</html>
