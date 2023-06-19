@@ -108,3 +108,7 @@ master
 
 You are now on the style branch, and nothing you do on the style branch will affect
 the master branch.
+
+If you want to switch to another existing branch:
+`git checkout <branchname>
+Ex: git checkout master
