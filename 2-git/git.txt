@@ -112,3 +112,7 @@ the master branch.
 If you want to switch to another existing branch:
 `git checkout <branchname>
 Ex: git checkout master
+
+Merging the changes made on another branch to another branch:
+
+`git merge
