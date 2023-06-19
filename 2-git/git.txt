@@ -56,3 +56,55 @@ Ex: `git pull origin master`
 
 Merge Conflicts
 Changes from different sources to the same part of the code in the repository
+
+Once you pull from the github repository, and it has changes on it,
+and you also have changes on the same lines in the code,
+you will have to fix the conflicts first.
+
+In your editor, you will see the changes you've made locally, and the
+changes from the repository you are trying to pull.
+
+You either discard the changes you downloaded and keep your locally made changes, origin
+accept the changes you've received and discard your local changes, or keep both changes.
+
+Once you resolved the conflict, you can now push this to the GitHub repository if you like.
+
+Commit History
+
+`git log`
+
+You'll see the commits pushed to the GitHub repository, the authors for each commit.
+
+Revert the current state of the local repository to an older state
+
+`git reset --hard <commit-hash>`
+Ex: git reset --hard f07f7e69967b0f512a365f47e6f8dc6b5de4914e
+
+Reverts to the version of the repository that is currently on GitHub
+`git reset --hard origin/master`
+
+
+Branching
+
+Checking for the branches in the repository:
+
+`git branch`
+If you currently have one branch, you will receive:
+*master
+
+This means that there is only one branch called master, and the asterisk means
+this is what you're currently working on.
+
+If you want to make a new branch, and switch to it:
+`git checkout -b <name_of_branch>`
+Ex: git checkout -b style
+
+You will receive a message:
+Switched to a new branch 'style'
+
+If you type `git branch` again, you will receive:
+master
+*style
+
+You are now on the style branch, and nothing you do on the style branch will affect
+the master branch.
