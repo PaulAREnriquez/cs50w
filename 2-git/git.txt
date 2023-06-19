@@ -115,9 +115,46 @@ Ex: git checkout master
 
 Merging the changes made on another branch to another branch:
 
-`git merge`
+`git merge <name_of_branch_you_want_to_merge_to_current_branch>`
+Ex: git merge style
 
 If the branch you want to merge has changes on the same line of code,
 with the one you want to merge it with, you will have a merge conflict.
 
 You have to resolve the conflict to successfully merge the branches.
+
+Forking a GitHub repository:
+This means you will have your own copy of another Github repository you do not own,
+into your own Github account.
+
+Click "Fork" on another any GitHub repository. 
+You can now clone this forked repository into your local machine.
+
+After you made changes to it, you can push those changes to the forked repository
+on your Github account.
+
+If you want to send your changes to the original repository,
+you can click "Pull request" somewhere on your forked repository.
+The owners of the original repository will now review the changes you made
+and decide if they will pull it to the original repository.
+
+
+Github Pages:
+freely deploy static html files into the internet for anyone to access
+
+Create a repository using the following naming convention:
+
+<your_username>.github.io
+
+Once you created this repository, it will automatically support Github Pages.
+
+You can clone this repository to your local machine, and add files to it.
+By default, you will be creating an index.html file, this file will be the one
+Github Pages will host.
+
+Commit the files you added, push it to your GitHub repository.
+
+Go to the settings tab of your repository, scroll down to Github Pages.
+You will see a link, this is now your published link that you can share
+to anybody.
+
