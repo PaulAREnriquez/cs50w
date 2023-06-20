@@ -1,0 +1,150 @@
+Django
+
+A Python web framework which allows us to write Python code that is
+able to dynamically generate HTML and CSS, ultimately allowing us to make
+a dynamic web application.
+
+Using HTML and CSS, the web pages we created were static web pages.
+Everytime you visit a page, the page will always look identical.
+
+Django dynamically generates html and css allowing web applications to respond
+based on how user interact with it.
+
+This is ultimately what we are going to create using the Django web framework.
+We're going to create software that's going to run on a web server such that clients,
+running in their web browser, can make requests to our web server, and our web server
+will respond back with some sort of response.
+
+How does this actually happen?
+
+HTTP (HyperText Transfer Protocol)
+- the protocol for how messages are sent back and forth across the internet.
+
+In this case, you may think that a computer, some user, which we might call a client,
+and then our server, which is the computer that contains the web application.
+
+We are going to write a Django application that is going to run on this server,
+and clients will make requests to our web server, the server will process those requests,
+and return a response.
+
+Underneath the hood, a request may look something like this:
+
+GET / HTTP/1.1
+Host: www.example.com
+...
+
+GET is an example of a request method, like you are trying to get a page.
+GET means I would like to get a particular page.
+In this case, you are trying to get the / page, which denotes for the root of the website,
+
+HTTP/1.1 is the version of HTTP that we are using. 
+
+And the host is what the URL we're trying to access the web page for.
+
+This is the kind of request that's sent by my web browser when you type in a URL and press Enter.
+The server processes the request and gives back some sort of response.
+
+And the response will generally look something like this:
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+...
+
+HTTP/1.1 is the HTTP version
+200 OK is the response code
+Content-Type: text/html the format of the response, that the user's web browser on the client should render
+
+The idea is to think about the web in terms of requests and responses.
+Once a user make a request, the server respond to the request.
+
+HTTP Status Codes
+200 OK
+301 moved permanently
+403 Forbidden
+404 not found
+500 internal server error
+
+Django is a web framework. It is a set of tools that is already built for us, that's just going
+to make it easy to get started by writing Python code in order to design a fully fledged web application
+by taking care of the things web pages all have to do so that we can focus on interesting logic
+of building our own web application.
+
+Install Django
+pip install django==version
+
+Next, we create a Django project.
+django-admin startproject PROJECT_NAME
+
+Django will create the starter files for us to get started in the process of building web application.
+
+Django will create a directory named PROJECT_NAME. And inside it is a directory of the same name, and manage.py.
+We will use manage.py file to execute commands on the Django project.
+
+Inside the directory of the same name, we will find:
+__init__.py
+asgi.py
+settings.py - configuration settings for the Django application on how 
+urls.py - table of contents for routes to visit on your application
+wsgi.py
+
+To run the application, we type in:
+`python manage.py runserver`
+
+Every Django project consists of one or more applications. Oftentimes, a big website
+has multiple apps that are individual separate services.
+
+In order to create a Django application:
+`django-admin startapp APP_NAME`
+
+Inside the app folder are:
+- migrations folder
+- __init__.py
+- admin.py
+- apps.py
+- models.py
+- tests.py
+- views.py - describes what a user sees when they visit a particular route
+
+Once you created an app, you need to install it to the main project:
+Go to the settings.py of the PROJECT_NAME folder:
+Add to the INSTALLED_APPS list the APP_NAME as a string
+
+You can now edit views.py inside the app folder.
+
+We need to tell the application when should a view in views.py be activated?
+This means what URL a user needs to visit in order for a particular view to output
+what the user needs.
+
+We need to create a urls.py file for each app in a project.
+Django has one urls.py file for  the entire project, but oftentimes each app
+has its own urls.py file, such that if we have multiple different apps, each of those
+doing something independent, we can have each of the individual apps have its own urls.py file
+to control the URL's available for that particular application.
+
+This is how you make the urls.py file:
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("",views.index,name="index"),
+]
+
+The path() accepts a string that determines the URL, the view, and the name of the view
+which is useful to reference it from other parts of the application.
+
+Lastly, need to update the urls.py inside the PROJECT folder.
+We will edit the urlpatterns list.
+We will add another path(). For example:
+
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('hello/',include("hello.urls"))
+]
+
+What this means is that we already include the path hello, as well as the urls.py for the hello application.
+
+To run the app: we run again `python manage.py runserver`
