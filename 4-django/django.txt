@@ -150,8 +150,7 @@ What this means is that we already include the path hello, as well as the urls.p
 To run the app: we run again `python manage.py runserver`
 
 
-SQL, Models, and Migrations
 
-SQL is a database language that is designed to interact with relational database management systems.
-Databases that organize data into tables where every table has rows and columns.
+
+
 
