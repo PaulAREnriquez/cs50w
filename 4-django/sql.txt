@@ -1,0 +1,124 @@
+SQL, Models, and Migrations
+
+SQL is a database language that is designed to interact with relational database management systems.
+Databases that organize data into tables where every table has rows and columns.
+
+Database Management systems
+Mysql
+PostgreSQL
+SQLite - lightweight, stores all of its data as a single file, also Django's default
+...
+
+SQLite create a new sqlite file.
+filename.sql
+
+To run sqlite, you need to download and install it, and add it to your environment variables.
+
+Type these commands to show the table nicely in the terminal:
+sqlite> .mode columns
+sqlite> .headers yes
+
+SQLite types:
+text
+numeric - includes integer and real, but also  date and boolean 
+integer - positive, negative and zero
+real - float
+blob - binary data such as files
+
+CREATE A table
+
+Example:
+
+CREATE TABLE flights (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    origin TEXT NOT NULL,
+    destination TEXT NOT NULL,
+    duration INTEGER NOT NULL,
+);
+
+Constraints
+- CHECK - makes sure that a value is within a certain condition
+- DEFAULT
+- NOT NULL
+- PRIMARY KEY
+- UNIQUE
+
+Insert record in a table
+
+Example:
+
+INSERT INTO flights
+ (origin,destination,duration)
+ VALUES ("New York","London", 415)
+
+Get data from a table (SELECT statements)
+
+SELECT * FROM flights; # *  means all columns
+SELECT origin,destination FROM flights; # only the 2 columns
+
+SELECT * FROM FLIGHTS WHERE id =3; # only the record with id =3
+SELECT * FROM FLIGHTS WHERE origin = "New York"; # only the records with origin = "New York"
+SELECT * FROM FLIGHTS WHERE duration > 500;
+SELECT * FROM FLIGHTS WHERE duration > 500 AND destination = "Paris";
+SELECT * FROM flights WHERE origin IN ("New York", "Lima");
+SELECT * FROM flights WHERE origin LIKE "%a%"; # all flights with letter "a" in origin
+
+Aggregate Functions:
+AVERAGE()
+COUNT()
+MAX()
+MIN()
+SUM()
+...
+
+Updating record/s in a database:
+
+Example:
+
+UPDATE flights
+    SET duration = 430
+    WHERE origin = "New York"
+    AND destination = "London";
+
+DELETE from a database:
+
+Example:
+
+DELETE FROM flights WHERE destination = "Tokyo"
+
+Other Clauses:
+
+LIMIT
+ORDER BY
+GROUP BY
+HAVING
+...
+
+With Django, we're just going to be writing Python code, and Django will manipulate
+the database for us creating the SQL commands that it is going to run on the underlying database.
+
+JOINING TABLES
+
+Example:
+
+1. JOIN/INNER JOIN - returns only the matching records based on the ON statement
+
+SELECT firstname, origin, destination,
+    FROM flights JOIN passengers
+ON passengers.flight_id = flights.id;
+
+2. LEFT OUTER JOIN
+3. RIGHT OUTER JOIN
+4. FULL OUTER JOIN
+
+Query Optimization:
+
+Creating Index on a table
+An Index is used to query a table much faster. It is an additional data structure constructed
+as a reference. It takes time and memory to construct this table and maintain it
+every time you update the data inside the table. Once it exists, it makes querying on a particular
+column much more efficient.
+
+Example:
+CREATE INDEX name_index ON passengers (lastname); # search for a passenger more efficently using their lastname
+
