@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Application Result</title>
+        <style>
+            h1 {
+                text-align: center;
+                
+            }
+            .button1 {
+                background-color: #4CAF50;
+                width: 30%;
+                border: 3px solid green;
+                padding: 10px;
+                
+            }
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+        </style>
+    </head>
+    <body>
+        {% if applicant.height > 160 and applicant.height < 190 %}
+            <h1>Congratulations, {{ applicant.name }}! You have the correct height to be an astronaut.</h1>
+        {% elif applicant.height <= 160 %}
+            <h1>Sorry, {{ applicant.name }}. Your height is below the minimum height to be an astronaut.</h1>
+        {% elif applicant.height >= 190 %}
+            <h1>Sorry, {{ applicant.name }}. Your height is above the maximum height to be an astronaut.</h1>
+        {% endif %}
+    </body>
+    <div class="container">
+        <button class="button1"
+                onclick="location.href={% url 'astronaut:index' %}"
+                type="button">Go back to Application</button>
+    </div>
+</html>
