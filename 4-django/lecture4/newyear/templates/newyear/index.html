@@ -5,12 +5,12 @@
         <title>Is it New Year's?</title>
         <!--static is Django's way of figuring out where the actual url for the particular file is-->
         <link href="{% static 'newyear/styles.css' %}" rel="stylesheet">
-        </head>
-        <body>
-            {% if newyear %}
-                <h1>Yes</h1>
-            {% else %}
-                <h1>No</h1>
-            {% endif %}
-        </body>
-    </html>
+    </head>
+    <body>
+        {% if newyear %}
+            <h1>Yes</h1>
+        {% else %}
+            <h1>No</h1>
+        {% endif %}
+    </body>
+</html>

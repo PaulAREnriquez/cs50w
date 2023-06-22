@@ -1,8 +1,8 @@
 <!--CSS Selectors-->
 <!--
   a,b = Multiple element selector
-  a b = Descendant selector
-  a > b  = Child selector
+  a b = Descendant selector, from children to grandchildren
+  a > b  = Child selector, direct children
   a + b = Adjacent sibling selector
   [a = b] = Attribute selector
   a:b = Pseudoclass selector
@@ -13,7 +13,7 @@
     <head>
         <title>Descendants</title>
         <style>
-            ul>li { /*affects only li which is a child of ul */
+            ul>li { /*affects only li which is a direct child of ul */
                 color: blue; 
             }
         </style>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Responsive</title>
+        <style>
+            @media (min-width:600px){
+                body{
+                    background-color: red;
+                }
+            }
+            @media (max-width:599px){
+                body {
+                    background-color: blue;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to my Webpage!</h1>
+    </body>
+</html>
+
+<!--Ways to implement Responsive design-->
+<!--
+    1. viewport - is how the page is layout on the screen depending on the size of the screen
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    2. Media queries -controlling on how a page will look depending on the size of the screen we
+    are rendering that page on
+    @media
+
+    3. flexbox - quite helpful if we're trying multiple elements
+    on a screen that might overflow
+    #container{
+                display:flex;
+                flex-wrap:wrap;
+            }
+-->
