@@ -122,3 +122,54 @@ column much more efficient.
 Example:
 CREATE INDEX name_index ON passengers (lastname); # search for a passenger more efficently using their lastname
 
+Risks and Threats:
+
+A. SQL Injection
+- a security vulnerability that happen if you're not careful about how it is
+you actually execute your SQL commands
+
+Say you have a users database.A users table with a username column and a password column
+column.(Although in practice you don't store passwords in clear text)
+
+You have a SQL query for a User sign in like this:
+SELECT * FROM users
+WHERE username = username AND password = password
+
+A user typed in his username as harry and password as 12345
+Example:
+SELECT * FROM users
+WHERE username = "harry" AND password = "12345"
+
+If we get results back, we can sign our users in
+
+However, if someone tries to sign in using:
+
+hacker"-- as username
+12345 as password
+
+The query will be:
+SELECT * FROM users 
+WHERE username= "hacker"--" AND password = "12345"
+
+The -- in sql is to comment everythings after it. The hacker can now login 
+to your website even if they are not authorized to do so.
+
+Solution:
+1. Escape the characters using \ for user inputs
+2. SQL abstraction in which we don't need to write the sql anymore, (for example using Django)
+
+B. Race conditions
+
+Events that are happening in parallel threads simultaneously.
+For example, many users of Facebook are trying to like a post at the same time.
+
+If we're not careful about how we run those particular sql queries, there is a potential 
+to have race conditions problem and there will be conflict in updating the database.
+
+Solution:
+1. placing a lock on the database, when you let one transaction finish first before allowing
+a new transaction to go through (although this is not efficently correct)
+
+
+
+

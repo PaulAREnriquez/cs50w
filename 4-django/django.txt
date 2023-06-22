@@ -150,7 +150,124 @@ What this means is that we already include the path hello, as well as the urls.p
 To run the app: we run again `python manage.py runserver`
 
 
+Django models
+
+Models provide a way of creating a Python class that is going to represent data that we want Django to store inside a database.
+
+Everytime you create changes in the models.py, like adding a class representing a database,
+you should update the databse to include information about the models tht you created.
+
+This is the process called migration.
+1. Creating the migration - the instructions on how to manipulate the database
+
+Make sure that you are inside the project folder when running this command:
+`python manage.py makemigrations`
+
+A file will be created under the migrations folder inside your app directory.
+This file tells how to manipulate the database to reflect the changes you have made to the model
+
+2. Take those instructions and apply them to the underlying database
+
+Apply the migrations to Django's database.
+`python manage.py migrate`
+
+A db.sqlite3 file will be created under the project directory,
+that contains the table for your models.
+
+How can you interact with the models?
+You can use sql syntax by opening the file and writing commands, but Django provides nicely
+abstraction layers on top of it so you won't need to execute commands yourself.
+You can begin to work with Python classes, functions and variables.
+
+You can do this by running the following command:
+`python manage.py shell`
+
+>>> from flights.models import Flight
+# Inserting data into the Flight table
+>>> f = Flight(origin="New York", destination="London",duration=415)
+>>> f.save()
+
+# Query the Flight table
+>>> Flight.objects.all() # Same as SELECT * FROM Flight
+<QuerySet [<Flight: Flight object (1)>]>
+
+Any object has a string representation using __str__(), and you can implement this
+to provide a string representation for each model
+
+>>> from flights.models import Flight
+>>> flights = Flight.objects.all()
+>>> flights
+<QuerySet [<Flight: 1: New York to London>]>
+>>> for flight in flights:
+...     print(flight)
+...
+1: New York to London
+>>> flight.delete() # to delete the flight
+
+Make sure that afterany changes you make in models.py, you run:
+`python manage.py makemigrations`
+
+It will create a new file if there are any changes.
+Migrate those changes to Django's database, using:
+`python manage.py migrate`
+
+>>> python manage.py shell
+>>> from flights.models import *
+>>> jfk = Airport(code="JFK",city="New York")
+>>> jfk.save()
+>>> lhr=Airport(code="LHR",city="London")
+>>> lhr.save()
+>>> cdg=Airport(code="CDG",city="Paris")
+>>> cdg.save()
+>>> nrt=Airport(code="NRT",city="Tokyo")
+>>> nrt.save()
+>>> f = Flight(origin=jfk, destination=lhr, duration=415)
+>>> f.save()
+>>> f
+<Flight: 1: New York (JFK) to London (LHR)>
+>>> f.origin
+<Airport: New York (JFK)>
+>>> f.origin.city
+'New York'
+>>> f.origin.code
+'JFK'
+>>> lhr.arrivals.all()
+<QuerySet [<Flight: 1: New York (JFK) to London (LHR)>]>
+
+>>> python manage.py shell
+>>> Airport.objects.all()
+>>> jfk = Airport.objects.filter(city="New York").first()
+>>> cdg = Airport.objects.filter(city="Paris").first()
+>>> f = Flight(origin=jfk, destination=cdg, duration=435)
+>>>f.save()
+
+It's annoying that we always have to go to the shell to manipulate data on our database.
+Django doesn't want you the programmer to repeat work that other people have already done.
+This process of trying to define, edit and manipulate models is so common, that Django
+has designed an entire app for the manipulation of these models, which is known as the Django admin app.
+
+Django-admin app
+
+We need to create first an administration account through the terminal:
+`python manage.py createsuperuser`
+
+You need to supply a Username, Email address, and a Password.
+
+Now, you need to register your models inside the admin.py file of your application.
+
+Example:
+
+from django.contrib import admin
+
+from .models import Flight, Airport
 
 
+# Register your models here.
+admin.site.register(Airport)
+admin.site.register(Flight)
+
+You can now run again the server and go to /admin. Input your username and password.
+Make changes to the models
 
 
+Authentication
