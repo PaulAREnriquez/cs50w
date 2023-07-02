@@ -246,7 +246,7 @@ Django doesn't want you the programmer to repeat work that other people have alr
 This process of trying to define, edit and manipulate models is so common, that Django
 has designed an entire app for the manipulation of these models, which is known as the Django admin app.
 
-Django-admin app
+DJANGO-ADMIN APP
 
 We need to create first an administration account through the terminal:
 `python manage.py createsuperuser`
@@ -271,3 +271,5 @@ Make changes to the models
 
 
 Authentication
+
+Check the users app folder.

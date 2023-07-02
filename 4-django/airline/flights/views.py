@@ -33,5 +33,5 @@ def book(request, flight_id):
         # adding a flight to a set called flights
         passenger.flights.add(flight)
 
-        # args=(flight.id,) must be a tuple
+        # args=(flight.id,) must be structured as a tuple
         return HttpResponseRedirect(reverse("flights:flight", args=(flight.id,)))

@@ -23,7 +23,17 @@ text
 numeric - includes integer and real, but also  date and boolean 
 integer - positive, negative and zero
 real - float
-blob - binary data such as files
+blob - binary data such as files, audio
+
+Mysql types:
+CHAR (size)
+VARCHAR (size)
+SMALLINT
+INT
+BIGINT
+float
+DOUBLE
+...
 
 CREATE A table
 
@@ -43,7 +53,11 @@ Constraints
 - PRIMARY KEY
 - UNIQUE
 
-Insert record in a table
+AUTOINCREMENT after PRIMARY KEY gives cue to sql to automatically update
+the id everytime you add a row to a table
+
+
+INSERT record in a table
 
 Example:
 
@@ -51,7 +65,10 @@ INSERT INTO flights
  (origin,destination,duration)
  VALUES ("New York","London", 415)
 
-Get data from a table (SELECT statements)
+We don't need to add id because we created that column as AUTOINCREMENT.
+
+
+GET DATA from a table (SELECT statements)
 
 SELECT * FROM flights; # *  means all columns
 SELECT origin,destination FROM flights; # only the 2 columns
@@ -80,26 +97,38 @@ UPDATE flights
     WHERE origin = "New York"
     AND destination = "London";
 
+
 DELETE from a database:
 
 Example:
 
 DELETE FROM flights WHERE destination = "Tokyo"
 
-Other Clauses:
+OTHER CLAUSES:
 
 LIMIT
 ORDER BY
-GROUP BY
+GROUP BY - group by a particular column
 HAVING
 ...
 
 With Django, we're just going to be writing Python code, and Django will manipulate
 the database for us creating the SQL commands that it is going to run on the underlying database.
 
+
 JOINING TABLES
 
-Example:
+Putting records from another table to a table, not with the use of text but
+with their ids. When you put the ids or PRIMARY KEYS of records of another table to a table, they are now called
+as FOREIGN Keys.
+
+TABLE RELATIONSHIPS
+
+ONE TO MANY = one flight is associated with many passengers
+MANY TO MANY = passengers may be associated with many flights and flights may be associated with many passengers
+
+Types of JOINS:
+
 
 1. JOIN/INNER JOIN - returns only the matching records based on the ON statement
 
