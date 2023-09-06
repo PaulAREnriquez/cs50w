@@ -88,6 +88,8 @@ Commit History
 
 You'll see the commits pushed to the GitHub repository, the authors for each commit.
 
+To exit git log, just press `q`.
+
 Revert the current state of the local repository to an older state
 
 `git reset --hard <commit-hash>`
