@@ -7,8 +7,23 @@ from django import forms
 # this means that if we use this, anyone who visits our website will have the same tasks
 # but we want to individualize the tasks for each user
 # so we have to do it another way
-# tasks = []
+# tasks = ['foo', 'bar', 'baz']
 
+# I.
+"""
+def index(request):
+    context_dict = {
+    "tasks": tasks
+    }
+    return render(request, 'tasks/index.html', context= context_dict)
+"""
+
+
+# II.
+"""
+def add(request):
+    return render(request, 'tasks/add.html')
+"""
 
 class NewTaskForm(forms.Form):
     task = forms.CharField(label="New Task")
@@ -26,10 +41,54 @@ class NewTaskForm(forms.Form):
     # priority = forms.IntegerField(label="Priority", min_value=1, max_value=5)
 
 
+# III.
+"""
+def add(request):
+    context_dict = {
+    "form": NewTasksForm()
+    }
+    return render(request, "tasks/add.html", context_dict)
+"""
+
+# IV.
+"""
+def add(request):
+    if request.method == "POST":
+        form = NewTasksForm(request.POST)
+        if form.is_valid():
+            task = form.cleaned_data["task"]
+            tasks.append(task)
+        else:
+            return render(request, "tasks/add.html",{
+            "form":form
+            })
+
+    return render(request, "tasks/add.html", {
+    "form": NewTaskForm()
+    })
+"""
+# V.
+"""
+def add(request):
+    if request.method == "POST":
+        form = NewTasksForm(request.POST)
+        if form.is_valid():
+            task = form.cleaned_data["task"]
+            tasks.append(task)
+            return HttpResponseRedirect(reverse("tasks:index"))
+        else:
+            return render(request, "tasks/add.html",{
+            "form":form
+            })
+
+    return render(request, "tasks/add.html", {
+    "form": NewTaskForm()
+    })
+"""
+
+# VI. 
 # Create your views here.
 def index(request):
-    
-
     # this is where we use sessions in Django instead of a global variable
     # sessions remember a user's session individually
     # it stores a session per user in a table called django_session
@@ -38,7 +97,7 @@ def index(request):
     # it allows us to create all the default tables in Django database
 
     # everytime a user access a page
-    # they will see a different version that is unique to them 
+    # they will see a different version that is unique to them
     if "tasks" not in request.session:
         request.session["tasks"] = []
 
@@ -46,7 +105,7 @@ def index(request):
     context_dict = {"tasks": request.session["tasks"]}
     return render(request, "tasks/index.html", context=context_dict)
 
-
+# VII 
 def add(request):
     if request.method == "POST":
         # request.POST contains all the data the user submitted

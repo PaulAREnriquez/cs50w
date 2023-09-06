@@ -70,10 +70,10 @@ by taking care of the things web pages all have to do so that we can focus on in
 of building our own web application.
 
 Install Django
-pip install django==version
+`pip install django==version`
 
 Next, we create a Django project.
-django-admin startproject PROJECT_NAME
+`django-admin startproject PROJECT_NAME`
 
 Django will create the starter files for us to get started in the process of building web application.
 
@@ -88,7 +88,11 @@ urls.py - table of contents for routes to visit on your application
 wsgi.py
 
 To run the application, we type in:
+
 `python manage.py runserver`
+
+NOTE: Make sure you are inside the project directory before running `python manage.py runserver`
+
 
 Every Django project consists of one or more applications. Oftentimes, a big website
 has multiple apps that are individual separate services.
