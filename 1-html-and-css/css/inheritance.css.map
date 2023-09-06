@@ -1,1 +1,1 @@
-{"version":3,"sources":["inheritance.scss","inheritance.css"],"names":[],"mappings":"AACA,wBAAA;AACA;;;oBAAA;AAKA,uHAAA;AACA;EACI,uBAAA;EACA,eAAA;EACA,iBAAA;EACA,uBAAA;EACA,aAAA;EACA,YAAA;ACDJ;;ADIA;EAEI,uBAAA;ACFJ;;ADKA;EAEI,wBAAA;ACHJ;;ADOA;EAEI,qBAAA;ACLJ","file":"inheritance.css"}
+{"version":3,"sources":["inheritance.scss","inheritance.css"],"names":[],"mappings":"AAAA,wBAAA;AACA;;;oBAAA;AAKA,uHAAA;AACA;EACI,uBAAA;EACA,eAAA;EACA,iBAAA;EACA,uBAAA;EACA,aAAA;EACA,YAAA;ACAJ;;ADGA;EAEI,uBAAA;ACDJ;;ADIA;EAEI,wBAAA;ACFJ;;ADMA;EAEI,qBAAA;ACJJ","file":"inheritance.css"}

@@ -7,17 +7,28 @@ Git
 3. Test changes to code (on a separate branch) without losing the original
 4. Revert back to old versions of our code
 
-Cloning a Repository
+GitHub is an online host of repositories
+
+A. Cloning a Repository
 - Takes a repository from the Github server and download it in our own computer
 - The repository and all its contents will now be downloaded to your local computer
 
-`git clone <url>`
+`git clone <SSH>`
+
+B. Connecting to a Repository
+When you want to connect your git-initialized local workspace to a GitHub repository:
+
+`git remote add origin <SSH>`
 
 Commit
 The savepoint state of the current files that you want to keep track of
 
 1. If you want to keep track of individual files and not other files:
 `git add <filename>`
+
+To keep track of all files:
+
+`git add .`
 
 2. Next, tell git to keep track of the files you added
 You add a message inside "" to explicitly tell what changes you made
@@ -27,25 +38,27 @@ It just makes it easier to remember what changes you made to a repository.
 `git commit -m "message"`
 
 Git will now save a new snapshot of the version of your code, keeping track
-of the old version/s that used to exist in the repository
+of the old version/s that used to exist in the repository.
 
 3. To know what's currently happening in the repository:
 
 `git status`
 
-4. Pushing commits to the repository in Github:
+4. To push the commits to the repository in Github:
+
 `git push <remote> <branchname>`
 Ex: git push origin master
 
 You might want to type in `git status` anytime you want to see the status of your
 current repository, such as changes that have not yet been committed as well
 
+- `master` is the default name for the main branch of a newly created repository
 
-If you want to add and commit all the files that have been changed:
+If you want to add and commit all the files that have been MODIFIED:
 The shortcut is,
 `git commit -am "message"`
 
-It combines the git add step and the git commit step
+It combines the git add step and the git commit step.
 
 To download the current version of the repository in GitHub:
 
@@ -86,27 +99,52 @@ Reverts to the version of the repository that is currently on GitHub
 
 Branching
 
+In a hypothetical situation where you are making changes to a git repository:
+
+first commit --> changes --> more changes --> start new feature --> keep working on a new feature
+
+This structure is very linear, one after another, and often times you will not working
+in a linear fashion.
+
+You might be working on fixing multiple bugs, or multiple features, and you want to work
+on them simultaneously with ease, switching between tasks when necessary.
+
+Branching allows us to work on different parts of the repository, at the same time.
+
+
+                         start new feature --> keep working on a new feature
+                                ^                              |      
+                                |                              v 
+first commit --> changes --> more changes --> fix bug ------------> merge to master branch
+
+HEAD is the branch your currently working at:
+For example, if you're working on the master branch, it will be the HEAD.
+If you're working on the feature branch, it will be HEAD.
+
+
 Checking for the branches in the repository:
 
 `git branch`
 If you currently have one branch, you will receive:
 *master
 
+The `*` tells you what branch you are currently at.
+
 This means that there is only one branch called master, and the asterisk means
 this is what you're currently working on.
 
 If you want to make a new branch, and switch to it:
 `git checkout -b <name_of_branch>`
-Ex: git checkout -b style
+Ex: git checkout -b feature
 
 You will receive a message:
-Switched to a new branch 'style'
+Switched to a new branch 'feature'
 
 If you type `git branch` again, you will receive:
 master
-*style
+*feature
 
-You are now on the style branch, and nothing you do on the style branch will affect
+You are now on the feature branch, and nothing you do on the feature branch will affect
 the master branch.
 
 If you want to switch to another existing branch:
@@ -116,12 +154,14 @@ Ex: git checkout master
 Merging the changes made on another branch to another branch:
 
 `git merge <name_of_branch_you_want_to_merge_to_current_branch>`
-Ex: git merge style
+Ex: git merge feature
 
 If the branch you want to merge has changes on the same line of code,
 with the one you want to merge it with, you will have a merge conflict.
 
 You have to resolve the conflict to successfully merge the branches.
+
+FORK
 
 Forking a GitHub repository:
 This means you will have your own copy of another Github repository you do not own,
@@ -133,14 +173,18 @@ You can now clone this forked repository into your local machine.
 After you made changes to it, you can push those changes to the forked repository
 on your Github account.
 
-If you want to send your changes to the original repository,
+If you want to send your changes or contributions to the original repository,
 you can click "Pull request" somewhere on your forked repository.
 The owners of the original repository will now review the changes you made
 and decide if they will pull it to the original repository.
 
+This is one of the key benefits of open-source software. It gives multiple people the ability
+to work on the same piece of code, and for the community to collaborate on finding bugs and
+how to improve an existing repository. 
+
 
 Github Pages:
-freely deploy static html files into the internet for anyone to access
+freely deploy static html files (can have some javascript) into the internet for anyone to look at.
 
 Create a repository using the following naming convention:
 
@@ -149,8 +193,9 @@ Create a repository using the following naming convention:
 Once you created this repository, it will automatically support Github Pages.
 
 You can clone this repository to your local machine, and add files to it.
-By default, you will be creating an index.html file, this file will be the one
+By default, you will be creating an html file named index. This file will be the one
 Github Pages will host.
+Create an index.html
 
 Commit the files you added, push it to your GitHub repository.
 
