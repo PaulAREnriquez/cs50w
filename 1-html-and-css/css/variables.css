@@ -7,7 +7,7 @@ nested syntax to iterate across elements,
 /*all variables begin with a dollar sign */
 /*Browsers do not understand scss, we need to compile
 our scss file into plain css */
-/*We installed Live CSS Compiler at the Extensions Marketplace */
+/*We installed Live SASS Compiler at the Extensions Marketplace */
 /*We need to compile it everytime we make changes */
 /*However, because we already installed Live CSS Compiler,
 it is constantly watching for changes, compiling it,

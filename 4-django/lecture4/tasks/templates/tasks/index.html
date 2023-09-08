@@ -4,8 +4,6 @@
     <ul>
         {% for task in tasks %}
             <li>{{ task }}</li>
-            <!--whenever we use for-loop in a template-->
-            <!--we can add {% empty %} that will show when there is nothing yet to show-->
         {% empty %}
             <li>No tasks yet.</li>
         {% endfor %}

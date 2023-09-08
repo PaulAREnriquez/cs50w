@@ -2,22 +2,6 @@
 {% block body %}
     <h1>Add a task:</h1>
     <form action="{% url 'tasks:add' %}" method="post">
-        <!--When you are using a form-->
-        <!--without a csrf_token, django will prevent you from posting your request-->
-        <!--you will get a 403 Forbidden page-->
-        <!--csrf stands for cross-site request forgery-->
-        <!--this means someone can forge a form and pass it to a particular website-->
-        <!--from another website-->
-        <!--csrf_token is a unique token generated for every session a user access a form of a website-->
-        <!--They will receive a particular token-->
-        <!--When they try to submit the form, they are submitting it together with their token-->
-        <!--Our web app will validate this token, and if valid,-->
-        <!--it will allow the form submission to go through-->
-        <!--a hacker needs to know this csrf token, or else he will fail the validation-->
-        <!--django has csrf turned on by default, you can see it in the settings.py of the project-->
-        <!--inside the MIDDLEWARE list-->
-        <!--this is fairly easy to do-->
-        <!--just add the line {%csrf_token%} just like below-->
         {% csrf_token %}
         {{ form }} <!--Django form instead of the commented line below-->
         <!--<input type="text" name="task">-->
@@ -29,3 +13,20 @@
     <!--You also used the app_name you defined in urls to avoid namespace collision-->
     <a href="{% url 'tasks:index' %}">View Tasks</a>
 {% endblock body %}
+
+<!--When you are using a form-->
+<!--without a csrf_token, django will prevent you from posting your request-->
+<!--you will get a 403 Forbidden page-->
+<!--csrf stands for cross-site request forgery-->
+<!--this means someone can forge a form and pass it to a particular website-->
+<!--from another website-->
+<!--csrf_token is a unique token generated for every session a user access a form of a website-->
+<!--They will receive a particular token-->
+<!--When they try to submit the form, they are submitting it together with their token-->
+<!--Our web app will validate this token, and if valid,-->
+<!--it will allow the form submission to go through-->
+<!--a hacker needs to know this csrf token, or else he will fail the validation-->
+<!--django has csrf turned on by default, you can see it in the settings.py of the project-->
+<!--inside the MIDDLEWARE list-->
+<!--this is fairly easy to do-->
+<!--just add the line {%csrf_token%} just like below-->

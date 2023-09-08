@@ -25,6 +25,7 @@ def add(request):
     return render(request, 'tasks/add.html')
 """
 
+
 class NewTaskForm(forms.Form):
     task = forms.CharField(label="New Task")
     # the constraints defined for this IntegerField
@@ -86,8 +87,8 @@ def add(request):
     })
 """
 
-# VI. 
-# Create your views here.
+
+# VI. Final version of views.index
 def index(request):
     # this is where we use sessions in Django instead of a global variable
     # sessions remember a user's session individually
@@ -105,7 +106,8 @@ def index(request):
     context_dict = {"tasks": request.session["tasks"]}
     return render(request, "tasks/index.html", context=context_dict)
 
-# VII 
+
+# VII final version of views.add
 def add(request):
     if request.method == "POST":
         # request.POST contains all the data the user submitted

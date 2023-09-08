@@ -9,3 +9,8 @@
 #foo {
   color: aqua
 }
+
+h1 {
+  color: pink;
+  text-align: center;
+}
